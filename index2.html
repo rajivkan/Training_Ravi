@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			var Xyz = function(){
+				var x = 10;
+				var abc = function() {
+					return abc2();
+				}
+
+				var abc2 = function() {
+					return x * 2;
+				}
+				return {
+						func_abc: abc
+					};
+			}
+			var x = Xyz();
+			//console.log("X: "+x.func_abc2());
+			console.log("X2: "+x.func_abc());
+			debugger;
+			function Parent(){
+				var message = "My Name is ";
+
+				this.sayName = function(){
+					return message;
+				}
+			}
+
+			function Child(name, age){
+				this.name = name;
+				this.age = age;
+			}
+
+			Child.prototype = new Parent();
+			var child = new Child("Raj", 30);
+
+			// Child.prototype.age = function(){
+			// 	return  30;
+			// }
+			console.log(child.sayName() + child.name +" and Age is "+ child.age);
+
+			var arr = [1, 2, 3, 4, 5, 6];
+			console.log(arr.join(" :::: "));
+
+			var numbers = arr.map(function(n){
+				return n * 2;
+			})
+
+			var str = "";
+			for(var i=0; i < arr.length; i++){
+				str += arr[i]+ ((i == arr.length - 1) ? "" : " :::: ");
+			}
+
+			console.log(str);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

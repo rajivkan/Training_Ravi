@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			//alert("Welcome to Javascript");
+			// var flag = confirm("Are you sure to delete?");
+			// if(flag){
+			// 	alert("YES");
+			// }
+			// else{
+			// 	alert("NO");
+			// }
+			// var name = prompt("Your name: ");
+			// if(name != "null")
+			// 	alert("Your name is " + name);
+			// alert("variable type of the name is "+ typeof(name));
+			window.addEventListener("load", onLoad);
+			function onLoad(){
+
+				//document.getElementById("div1").innerHTML = "This element is accessed by javascript";
+				//document.getElementsByTagName("div")[1].innerHTML = "This element is accessed by javascript";
+				//document.getElementsByClassName("abc")[1].innerHTML = "Span elements";
+				//document.getElementsByName("spanName")[0].innerHTML = "Span elements";
+
+				//document.getElementById("div1").className="message";
+				
+
+				var p = document.createElement("p");
+				p.innerHTML = "This is my first paragraph.";
+				document.getElementById("bodyTag").appendChild(p);
+
+				var button = document.createElement("button");
+				button.innerHTML = "Javascript Button";
+				button.addEventListener("mouseout", function(evt){
+					alert("Button clicked by javascript");
+				})
+				document.getElementById("bodyTag").appendChild(button);
+			}
+
+			var x = 1;
+			var y = "1";
+			//alert("== : "+ (x == y));
+
+			//alert("=== : "+ (x === y));
+
+			function onClick(){
+				alert("Button clicked.");
+			}
+
+			window.addEventListener("CUSTOM_EVENT", function(evt){
+				debugger;
+			})
+
+			var evet = new CustomEvent("CUSTOM_EVENT");
+			evet.user = {userName: "Raj"};
+			window.dispatchEvent(evet);
+
+		</script>
+
+		<style type="text/css">
+
+			#div1{
+				color: #ff00ff;
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+			.abc{
+				color: #ff0000;
+				font-size: 10px;
+				font-weight: bold;
+				font-family: Verdana;
+			}
+
+			.message{
+				color: green;
+				font-size: 10px;
+				font-weight: bold;
+				font-family: Verdana;
+			}
+
+			div{
+				color: blue;
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+		</style>
+	</head>
+	<body id="bodyTag">
+		<div id="div1" class="abc" name="divName">div 1</div>
+		<div>Div 2</div>
+		<span class="abc" name="spanName"> Span 1</span>
+
+		<button onclick="onClick()">Html Button</button>
+	</body>
+</html>
