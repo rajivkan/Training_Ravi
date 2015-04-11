@@ -4,6 +4,7 @@
 		<script type="text/javascript" src="js/lib/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="js/lib/underscore.js"></script>
 		<script type="text/javascript" src="js/lib/backbone.js"></script>
+		<script type="text/javascript" src="js/http-client.js"></script>
 	</head>
 
 	<body>
@@ -11,21 +12,31 @@
 
 			<script type="text/javascript">
 
-				var header = Backbone.View.extend({
-					el:"#welcomeDiv",
-					initialize: function(){
-						this.render();
-					},
-					render: function(){
-						var that = this;
-						$.get('templates/header.html', function (data) {
-							var template = _.template(data, {message: "This is my first backbone js project"}); //Option to pass any dynamic values to template
-							that.$el.html(template); //adding the template content to the main template.
-						}, 'html');
-					}
-				});
+				httpClient.get("http://www.w3schools.com/angular/customers.php", success, error)
 
-				var headerView = new header({});
+				function success(result){
+					
+					var header = Backbone.View.extend({
+						el:"#welcomeDiv",
+						initialize: function(){
+							this.render();
+						},
+						render: function(){
+							var that = this;
+							$.get('templates/header.html?asa', function (data) {
+								var template = _.template(data, {students: result.records}); //Option to pass any dynamic values to template
+								that.$el.html(template); //adding the template content to the main template.
+							}, 'html');
+						}
+					});
+
+					var headerView = new header({});
+
+				}
+
+				function error(err){
+					debugger;
+				}
 			</script>
 	<body>
 </html>

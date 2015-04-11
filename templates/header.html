@@ -1,3 +1,30 @@
 <h3>Welcome to BackboneJs.</h3>
 
-<%=message%>
+<table style="width:80%">
+	<tr style="font-weight:bold;">
+		<td>
+			Name
+		</td>
+		<td>
+			City
+		</td>
+		<td>
+			Country
+		</td>
+	</tr>
+
+	 <% _.each(students, function(student) { %>
+		<tr>
+			<td>
+				<%= student.Name %>
+			</td>
+			<td>
+				<%= student.City %>
+			</td>
+			<td>
+				<%= student.Country %>
+			</td>
+		</tr>
+	<% }); %>
+</table>
+ 
