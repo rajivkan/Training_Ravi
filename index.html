@@ -23,7 +23,7 @@
 						},
 						render: function(){
 							var that = this;
-							$.get('templates/header.html?asa', function (data) {
+							$.get('templates/header.html?s', function (data) {
 								var template = _.template(data, {students: result.records}); //Option to pass any dynamic values to template
 								that.$el.html(template); //adding the template content to the main template.
 							}, 'html');

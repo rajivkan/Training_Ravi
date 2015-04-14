@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="js/lib/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/lib/underscore.js"></script>
+		<script type="text/javascript">
+			function onCall(){
+				var arrayData = ["Student 1", "Student 2", "Student 3", "Student 4"]
+
+				// $.each(arrayData, function(index, item){
+				// 	$("#div1").html($("#div1").html()+item+"<br>")
+				// })
+				_.each(arrayData, function(item, index){
+					$("#div1").html($("#div1").html()+item+" "+ index +"<br>");
+				})
+			}
+
+		</script>
+	</head>
+
+	<body>
+		<div id="div1"></div>
+		<button onclick="onCall()">Click Me</button>
+	</body>
+</html>
